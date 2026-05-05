@@ -28,4 +28,4 @@ jobs:
 
       - name: deploy
         run: cd dist/assets
-      - run: rsync -avz -e ssh -p 22100 /dist/assets ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/etc/omobus-scgi.d/markup-admin/htdocs
+      - run: cd dist/assets && rsync -e "ssh -p 22100 -i $HOME/.ssh/sshPrivateKey -o StrictHostKeyCheck=no" --archive --compress -delete . ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/etc/omobus-scgi.d/markup-admin/htdocs
