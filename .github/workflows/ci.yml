@@ -15,17 +15,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Dependencies
-      - run: npm ci
+        run: npm ci
       - run: npm build
 
       - name: run unit tests
-      - run: npm run test:unit
+        run: npm run test:unit
 
       - name: setup key
-      - run: mkdir -p "$HOME/.ssh"
+        run: mkdir -p "$HOME/.ssh"
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/sshPrivateKey"
       - run: chmod 600 "$HOME/.ssh/sshPrivateKey"
 
       - name: deploy
-      - run: cd dist/assets
+        run: cd dist/assets
       - run: rsync -avz -e ssh /dist/assets ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/etc/omobus-scgi.d/markup-admin/htdocs
