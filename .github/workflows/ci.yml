@@ -28,4 +28,4 @@ jobs:
 
       - name: deploy
         run: cd dist/assets
-      - run: rsync -avz -e ssh /dist/assets ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/etc/omobus-scgi.d/markup-admin/htdocs
+      - run: rsync -avz -e ssh -p 22100 /dist/assets ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/etc/omobus-scgi.d/markup-admin/htdocs
