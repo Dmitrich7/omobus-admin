@@ -28,4 +28,4 @@ jobs:
 
       - name: deploy
         run: cd dist/assets
-      - run: cd dist/assets && scp -r -P 22100 -i $HOME/.ssh/sshPrivateKey ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/etc/omobus-scgi.d/markup-admin/htdocs
+      - run: cd dist/assets && scp -r -P 22100 -i $HOME/.ssh/sshPrivateKey -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ./ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/etc/omobus-scgi.d/markup-admin/htdocs
