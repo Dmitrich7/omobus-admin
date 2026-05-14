@@ -18,7 +18,8 @@ jobs:
         run: npm ci
       - run: npm run build
 
-
+      - name: Run unit tests
+        run: npm run test:unit
 
       - name: setup key
         run: mkdir -p "$HOME/.ssh"
