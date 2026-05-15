@@ -7,8 +7,7 @@ export default async function getUserData(requestParams: IRequestParams) {
         {
             mode: 'no-cors'
         });
-
-        return response.json();
+        return response;
     }
     catch(error){
         if(error instanceof Error){

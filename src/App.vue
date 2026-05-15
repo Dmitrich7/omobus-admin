@@ -3,18 +3,12 @@ import chartView from './components/chartView.vue';
 import getUsersList from "@/API/APIHelpers/getUsersList.ts";
 import type IRequestParams from "@/models/IRequestParams.ts";
 import formatRequestParams from "@/API/utils/formatRequestParams.ts"
+import getUserStatistics from "@/API/API/getUserStatistics.ts";
 
 const xAxis = [1, 2, 3, 4, 5];
 const yAxis = [1, 2, 3, 4, 5];
 
-const rp: IRequestParams = {
-  uid:"123"
-}
-
-Object.entries(rp).forEach(([key, value]) => {
-  console.log(key, value);
-})
-
+getUserStatistics("m3")
 </script>
 
 <template>

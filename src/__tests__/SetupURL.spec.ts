@@ -1,37 +1,40 @@
-import {describe, expect, afterEach, test, vi, it} from 'vitest'
+import {describe, expect, afterEach, vi, it, test} from 'vitest'
 import setupUrl from "@/API/utils/setupUrl.ts"
 import type IRequestParams from "../models/IRequestParams.ts"
+import formatRequestParams from "@/API/utils/formatRequestParams.ts";
+import * as formatRequestParamsModule from '@/API/utils/formatRequestParams'
 
 describe("SetupURL interactions with localStorage",()=>{
     afterEach(() => {
         localStorage.clear();
     });
 
-    it('Checks url setup with missing parameters in local storage',()=>{
+    test('with no args',()=>{
         expect(setupUrl().toString()).toBe('https://zdev.omobus.net/markup/jobs?tid=99')
     })
 
-    it('Checks url setup with some parameters in local storage',()=>{
+    test('with only tid',()=>{
         localStorage.setItem("tid","111")
         expect(setupUrl().toString()).toBe('https://zdev.omobus.net/markup/jobs?tid=111')
     })
 
-    it('Checks url setup with some parameters in local storage',()=>{
+    test('with only url',()=>{
         localStorage.setItem("serverURL","https://xyz.kadroom.com")
         expect(setupUrl().toString()).toBe('https://xyz.kadroom.com/markup/jobs?tid=99')
     })
 
-    it('Checks url setup with some parameters in local storage',()=>{
+    test('with both',()=>{
         localStorage.setItem("serverURL","https://xyz.kadroom.com")
         localStorage.setItem("tid","111")
         expect(setupUrl().toString()).toBe('https://xyz.kadroom.com/markup/jobs?tid=111')
     })
 })
 
-describe("Checks different arguments passed to SetupURL",()=>{
-    it("Checks different arguments passed", ()=>{
+describe("SetupUrl processing request params",()=>{
+    it("correctly processes rp object", ()=>{
         const requestParams: IRequestParams = {
             uid: "m3"
         }
+        expect(setupUrl(requestParams).toString()).toBe('https://zdev.omobus.net/markup/jobs?tid=99&uid=m3')
     })
 })
