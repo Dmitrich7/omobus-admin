@@ -1,7 +1,7 @@
 import setupUrl from "@/API/utils/setupUrl.ts";
 import type IRequestParams from "@/models/IRequestParams.ts";
 
-export default async function getUserData(userName: string) {
+export default async function getAllUser(userName: string) {
     const requestParams: IRequestParams = {
         uid: userName
     }

@@ -1,4 +1,4 @@
-import {defaultTid, defaultUrl, folderPath} from "@/API/APIHelpers/IRequestParams.ts";
+import {defaultTid, defaultUrl, folderPath} from "@/API/APIHelpers/urlGlobals.ts";
 import type IRequestParams from "@/models/IRequestParams.ts";
 import formatRequestParams from "@/API/utils/formatRequestParams.ts";
 
