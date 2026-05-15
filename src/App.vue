@@ -8,7 +8,10 @@ import getUserStatistics from "@/API/API/getUserStatistics.ts";
 const xAxis = [1, 2, 3, 4, 5];
 const yAxis = [1, 2, 3, 4, 5];
 
-getUserStatistics("m3")
+getUserStatistics("m2")
+getUsersList().then(response => {
+  console.log(response);
+})
 </script>
 
 <template>

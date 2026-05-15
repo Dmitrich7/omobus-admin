@@ -4,6 +4,8 @@ import type IRequestParams from "../models/IRequestParams.ts"
 import formatRequestParams from "@/API/utils/formatRequestParams.ts";
 import * as formatRequestParamsModule from '@/API/utils/formatRequestParams'
 
+vi.stubEnv('DEV', false);
+
 describe("SetupURL interactions with localStorage",()=>{
     afterEach(() => {
         localStorage.clear();

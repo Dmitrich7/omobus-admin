@@ -8,7 +8,7 @@ export default async function getUserStatistics(userName: string) {
         uid: userName
     }
 
-    getUserData(requestParams).then(res => {
-        console.log(res)
+    await getUserData(requestParams).then(res => {
+        console.log(res instanceof Response ? res.body:res);
     });
 }
