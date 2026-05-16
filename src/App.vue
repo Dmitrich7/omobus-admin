@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import chartView from './components/chartView.vue';
 import getUsersList from "@/API/APIHelpers/getUsersList.ts";
-import type IRequestParams from "@/models/IRequestParams.ts";
+import type {IRequestParams} from "@/models";
 import formatRequestParams from "@/API/utils/formatRequestParams.ts"
-import getUserStatistics from "@/API/API/getUserStatistics.ts";
+import getUserJobs from "@/API/APIHelpers/getUserJobs.ts";
+//import getUserStatistics from "@/APIOrchestration/APIOrchestration/getUserStatistics.ts";
 
 const xAxis = [1, 2, 3, 4, 5];
 const yAxis = [1, 2, 3, 4, 5];
-
-getUserStatistics("m2")
-getUsersList().then(response => {
+//getUserStatistics("m2")
+getUserJobs("m3").then(response => {
   console.log(response);
 })
 </script>

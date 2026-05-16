@@ -1,22 +1,6 @@
-interface IEntity {
-    entityName: string,
-    lastOpen: Date,
-    lastChanged: Date,
-    changesCount: number,
-    timeSpent: number
-}
+import type IJob from "./IJob.ts"
 
-interface IItem {
-    itemName: string,
-    itemEntities: IEntity[]
-}
-
-interface IJob {
-    jobName: string,
-    jobItems: IItem[]
-}
-
-export default interface IUserData {
-    userName: string,
+export interface IUserData {
+    uid: string,
     jobs: IJob[]
 }

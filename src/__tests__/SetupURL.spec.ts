@@ -1,6 +1,6 @@
 import {describe, expect, afterEach, vi, it, test} from 'vitest'
 import setupUrl from "@/API/utils/setupUrl.ts"
-import type IRequestParams from "../models/IRequestParams.ts"
+import type {IRequestParams} from "@/models"
 import formatRequestParams from "@/API/utils/formatRequestParams.ts";
 import * as formatRequestParamsModule from '@/API/utils/formatRequestParams'
 

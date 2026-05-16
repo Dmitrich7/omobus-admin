@@ -1,14 +1,9 @@
 import setupUrl from "@/API/utils/setupUrl.ts";
 
-export default async function getUsersList() {
-    try{
-        const response = await fetch(setupUrl());
-
-        return response.json();
+export default async function getUsersList():Promise<string[]> {
+    const response = await fetch(setupUrl());
+    if (!response.ok) {
+        throw new Error(`Request failed: ${response.status} ${response.statusText}`);
     }
-    catch(error){
-       if(error instanceof Error){
-          return error.message;
-       }
-    }
+    return await response.json();
 }

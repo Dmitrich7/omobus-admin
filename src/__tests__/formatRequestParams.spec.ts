@@ -1,5 +1,5 @@
 import {describe, it, expect} from 'vitest'
-import type IRequestParams from "../models/IRequestParams.ts"
+import type {IRequestParams} from "@/models"
 import formatRequestParams from "@/API/utils/formatRequestParams.ts"
 
 describe("Param formating",()=>{

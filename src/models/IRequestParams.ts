@@ -1,4 +1,4 @@
-export default interface IRequestParams{
+export interface IRequestParams{
     uid?: string;
     ref?: string;
     item?: string;

@@ -1,9 +1,9 @@
-// setupUrl.ts
 import { defaultTid, defaultUrl, folderPath } from "@/API/apiVariables.ts";
-import type IRequestParams from "@/models/IRequestParams.ts";
+import type {IRequestParams} from "@/models";
 import formatRequestParams from "@/API/utils/formatRequestParams.ts";
 
 export default function setupUrl(requestParams?: IRequestParams): URL {
+
     const base =
         import.meta.env.DEV
             ? ""
